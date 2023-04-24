@@ -54,7 +54,7 @@ while True:
 
                 while True:
                     color = str(input("What is your color? (white/black)"))
-                    if color is not "white" or color is not "black":
+                    if color not in "black white":
                         print("Your opinion is invalid.")
                     else:
                         break
