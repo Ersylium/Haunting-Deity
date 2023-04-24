@@ -48,14 +48,12 @@ while True:
 
                 model = stockfish.Stockfish(path=f"{os.getcwd()}/stockfish", depth=18, parameters={"Threads": 2, "Minimum Thinking Time": wait, "Hash": 2048})
                 moves_list = []
-                while True:
-                    moves = str(input("Input the sequence of moves until now. Separate with comma. (e.g. e2e4, e7e6)"))
-                    if moves == "":
-                        print("Move you pussy.")
-                        continue
-                    else:
-                        moves_list = moves.lower().split(", ")
-                        model.set_position(moves_list)
+                moves = str(input("Input the sequence of moves until now. Separate with comma. (e.g. e2e4, e7e6)"))
+                if moves == "":
+                    print("Next time, move before consulting me you pussy.")
+                else:
+                    moves_list = moves.lower().split(", ")
+                    model.set_position(moves_list)
 
                 while True:
                     color = str(input("What is your color? (white/black)"))
@@ -75,13 +73,14 @@ while True:
                         model.make_moves_from_current_position(newmove)
 
                 while True:
-                    print("Next move:")
-                    model.make_moves_from_current_position(model.get_best_move())
-                    model.get_board_visual(True if color == "white" else False)
+                    result = model.get_best_move()
+                    print(f"Next move: {result}")
+                    model.make_moves_from_current_position([result])
+                    print(model.get_board_visual(True if color == "white" else False))
                     nextmove = [str(input("Manuca's move (type 'end' if match ended:")).lower()]
                     if nextmove[0] == "end":
                         print("If you won, it's because of me. If you lost, you lot with the aid of a computer. Git gud.")
-                        continue
+                        break
                     else:
                         model.make_moves_from_current_position(nextmove)
 
