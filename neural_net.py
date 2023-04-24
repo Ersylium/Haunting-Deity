@@ -2,6 +2,7 @@ import random
 import threading
 import emoji
 import time
+import os
 ping = True
 
 def very_sophisticated_neural_network_yes_yes(string):
@@ -45,7 +46,7 @@ while True:
                     else:
                         break
 
-                model = stockfish.Stockfish(path="stockfish.exe", depth=18, parameters={"Threads": 2, "Minimum Thinking Time": wait, "Hash": 2048})
+                model = stockfish.Stockfish(path=f"{os.getcwd()}", depth=18, parameters={"Threads": 2, "Minimum Thinking Time": wait, "Hash": 2048})
                 moves = str(input("If the game has already started, input the sequence of moves until now. Leave blank if there aren't. Separate with comma. (e.g. e2e4, e7e6)"))
                 if moves is not "":
                     moves_list = moves.split(", ")
