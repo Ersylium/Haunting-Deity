@@ -2,7 +2,7 @@ import random
 import threading
 import emoji
 import time
-
+ping = True
 
 def very_sophisticated_neural_network_yes_yes(string):
     bank = ["Fuck me dude", "Fuck off", "fr fr ong", "Manuca sucks at chess fr"]
@@ -15,10 +15,12 @@ def strike(text):
     return result
 
 def random_pings():
+    global ping
     ping_bank = [emoji.emojize(":snowflake:"), strike("@everyone\nType: Home Defence\nFC: Haunting Deity\nTime: Now\nForming: MJ-5F9 B E A N S T A R\nDoctrine: Sleipnirs + Basis/Links\nComms: Horde Alpha\n---\nMAX FORM UNDER HD, JUST SAW 5 MILLION LESHAKS IN BEAN INTEL LETS FUCKING GO BIGGEST FIGHT OF THE YEAR LETS GOOOOOOOOOOOOOO") + "\nnvm it was two brave caracals and a slasher sorry guys"]
     while True:
         time.sleep(random.randint(1, 2**10))
-        print("Haunting Deity: " + ping_bank[random.randint(1, len(ping_bank)-1)])
+        if ping:
+            print("Haunting Deity: " + ping_bank[random.randint(0, len(ping_bank) - 1)])
 
 print("------ChatHD, Your AI-powered Personal General Advisor (technically simple logic is still intelligence so not false advertising.)------")
 random_actions = threading.Thread(target=random_pings)
@@ -28,6 +30,7 @@ while True:
     if "chess" in string.lower():
         if "help" in string.lower() or "teach" in string.lower():
             if "please" in string.lower():
+                ping = False
                 try:
                     import stockfish
                 except ImportError:
@@ -76,6 +79,7 @@ while True:
                     else:
                         model.make_moves_from_current_position(nextmove)
 
+                ping = True
             else:
                 print("Play your own matches, now fuck off.")
 
