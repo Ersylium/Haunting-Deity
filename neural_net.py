@@ -46,11 +46,11 @@ while True:
                     else:
                         break
 
-                model = stockfish.Stockfish(path=f"{os.getcwd()}", depth=18, parameters={"Threads": 2, "Minimum Thinking Time": wait, "Hash": 2048})
+                model = stockfish.Stockfish(path=f"{os.getcwd()}/stockfish", depth=18, parameters={"Threads": 2, "Minimum Thinking Time": wait, "Hash": 2048})
                 moves = str(input("If the game has already started, input the sequence of moves until now. Leave blank if there aren't. Separate with comma. (e.g. e2e4, e7e6)"))
                 if moves is not "":
                     moves_list = moves.split(", ")
-                    model.set_position(moves)
+                    model.set_position(moves_list)
 
                 while True:
                     color = str(input("What is your color? (white/black)"))
