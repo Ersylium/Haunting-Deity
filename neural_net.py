@@ -46,7 +46,7 @@ while True:
                         break
 
                 model = stockfish.Stockfish(path="stockfish.exe", depth=18, parameters={"Threads": 2, "Minimum Thinking Time": wait, "Hash": 2048})
-                moves = str(input("If the game has already started, input the sequence of moves until now. Leave blank if there aren't. Separate with comma. (e.g. e2e4, e7e6)")
+                moves = str(input("If the game has already started, input the sequence of moves until now. Leave blank if there aren't. Separate with comma. (e.g. e2e4, e7e6)"))
                 if moves is not "":
                     moves_list = moves.split(", ")
                     model.set_position(moves)
