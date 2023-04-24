@@ -87,6 +87,8 @@ while True:
                 ping = True
             else:
                 print("Play your own matches, now fuck off.")
+    else:
+        print("Haunting Deity: " + very_sophisticated_neural_network_yes_yes(string))
 
 
 
