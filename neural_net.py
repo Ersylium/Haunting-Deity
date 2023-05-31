@@ -6,7 +6,12 @@ import os
 ping = True
 
 def very_sophisticated_neural_network_yes_yes(string):
-    bank = ["Fuck me dude", "Fuck off", "fr fr ong", "Manuca sucks at chess fr", "fr fr ong no cap no cizzy just straight spittin facts my skrillas no brim no cheek"]
+    bank = ["Fuck me dude",
+            "Fuck off", "fr fr ong",
+            "Manuca sucks at chess fr",
+            "fr fr ong no cap no cizzy just straight spittin facts my skrillas no brim no cheek",
+            "I know you don't really know mandem like that but I was wondering if I could purchase something still fam, just a bit of grub my drilla. I wanna know like what your prices are saying cause I'm tryna blem a zoot up with my boydem and gyaldem g like you feel me",
+            ]
     return bank[random.randint(1, len(bank)-1)]
 
 def strike(text):
